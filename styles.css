@@ -1,0 +1,74 @@
+html {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.header {
+    font-size: 32px;
+    font-weight: bolder;
+    text-align: center;
+    margin-bottom: 12px;
+}
+
+.frame {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    background-color: rgb(63, 63, 255);
+    width: 300px;
+    height: 400px;
+    border-radius: 10px;
+    margin: auto;
+}
+
+.display {
+    border: 5px solid #9E9BA5;
+    padding: 10px;
+    margin: 8px;
+    width: 200px;
+    box-sizing: border-box;
+    text-align: left;
+    background-color: #D6E2E3;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 32px;
+    border-radius: 10px;
+}
+
+.keypad {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 10px;
+}
+
+.keypad .zero {
+    grid-column: 1 / span 2;
+    width: auto;
+}
+
+.keypad .enter {
+    grid-column: 1 / span 2;
+    width: auto;
+}
+
+.keypad .clear {
+    grid-column: 3 / span 2;
+    width: auto;
+}
+
+button {
+    height: 40px;
+    width: 60px;
+    border-radius: 20px;
+    border: none;
+    box-shadow: 3px 3px 2px 0px grey;
+    font-size: 16px;
+}
+
+button:active {
+    height: 40px;
+    width: 60px;
+    border-radius: 20px;
+    border: none;
+    font-size: 16px;
+    box-shadow: inset 1px 1px 3px 1px grey;
+}
