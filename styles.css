@@ -2,18 +2,18 @@ html {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-.header {
-    font-size: 32px;
-    font-weight: bolder;
-    text-align: center;
-    margin-bottom: 12px;
+.main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
 }
 
 .frame {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-evenly;
     background-color: rgb(63, 63, 255);
     width: 300px;
     height: 400px;

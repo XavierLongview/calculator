@@ -105,5 +105,5 @@ buttons.forEach( (button) => {
 
 
 // To do: 
-// - Allow decimals to be entered
-// - Disable enter button when no operator selected
+// - Add a backspace button
+// - Add keyboard support
