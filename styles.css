@@ -52,7 +52,6 @@ html {
 }
 
 .keypad .clear {
-    grid-column: 3 / span 2;
     width: auto;
 }
 
@@ -63,7 +62,7 @@ button, button:disabled {
     border: none;
     box-shadow: 3px 3px 2px 0px grey;
     font-size: 16px;
-    background-color: rgb(236, 236, 236);
+    background-color: rgb(241, 241, 241);
     color: blue;
 }
 

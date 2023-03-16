@@ -5,6 +5,7 @@ const enter = document.querySelector('.enter');
 const clear = document.querySelector('.clear');
 const point = document.querySelector('.point');
 const buttons = document.querySelectorAll('button')
+const del = document.querySelector('.del')
 
 let currentValue = ''
 let previousValue = ''
@@ -102,8 +103,16 @@ buttons.forEach( (button) => {
     })
 })
 
+del.addEventListener('click', () => {
+    let deletedString = display.innerText.slice(0,-1)
+    if (deletedString === '') {
+        display.innerText = '0';
+    } else {
+        display.innerText = display.innerText.slice(0,-1);
+    }
+    
+})
 
 
 // To do: 
-// - Add a backspace button
 // - Add keyboard support
