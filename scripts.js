@@ -3,6 +3,8 @@ const numKeys = document.querySelectorAll('.numKey');
 const opKeys = document.querySelectorAll('.opKey');
 const enter = document.querySelector('.enter');
 const clear = document.querySelector('.clear');
+const point = document.querySelector('.point');
+const buttons = document.querySelectorAll('button')
 
 let currentValue = ''
 let previousValue = ''
@@ -65,7 +67,7 @@ opKeys.forEach( (opKey) => {
         // save prev value
         currentClick = 'op'
         if (op) {
-            popDisplay(operate(op, currentValue, previousValue))
+            popDisplay(operate(op, currentValue, previousValue));
         }
         op = opKey.innerText;
         previousValue = +display.innerText;
@@ -92,6 +94,15 @@ clear.addEventListener('click', () => {
     op = '';
     prevClick = 'clear'
 })
+
+buttons.forEach( (button) => {
+    button.addEventListener('click', () => {
+        display.innerText.includes(".") ? point.disabled = true : point.disabled = false;
+        !op ? enter.disabled = true : enter.disabled = false;
+    })
+})
+
+
 
 // To do: 
 // - Allow decimals to be entered
