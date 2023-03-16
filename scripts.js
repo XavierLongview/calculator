@@ -52,50 +52,62 @@ function popDisplay(text) {
     currentValue = +display.innerText
 }
 
+function numClick(event) {
+    currentClick = 'num'
+    popDisplay(event.currentTarget.innerText);
+    prevClick = 'num';
+}
 
+function opClick(event) {
+    currentClick = 'op'
+    if (op) {
+        popDisplay(operate(op, currentValue, previousValue));
+    }
+    op = event.currentTarget.innerText;
+    previousValue = +display.innerText;
+    prevClick = 'op';
+}
 
-numKeys.forEach( (numKey) => {
-    numKey.addEventListener('click', () => {
-        currentClick = 'num'
-        popDisplay(numKey.innerText);
-        prevClick = 'num';
-    })
-})
-
-opKeys.forEach( (opKey) => {
-    opKey.addEventListener('click', () => {
-        // save operator
-        // save prev value
-        currentClick = 'op'
-        if (op) {
-            popDisplay(operate(op, currentValue, previousValue));
-        }
-        op = opKey.innerText;
-        previousValue = +display.innerText;
-        prevClick = 'op';
-    })
-})
-
-enter.addEventListener('click', () => {
-    // run operation using opKey, display value & previous value
+function enterClick(event) {
     currentClick = 'enter';
     display.innerText = operate(op, +display.innerText, previousValue)
     displayValue = '';
     previousValue = '';
     op = '';
     prevClick = 'enter';
-})
+}
 
-clear.addEventListener('click', () => {
-    // clear display, opkey and prev value
+function clearClick(event) {
     currentClick = 'clear'
     display.innerText = '0';
     currentValue = '';
     previousValue = '';
     op = '';
     prevClick = 'clear'
-})
+}
 
+function delClick(event) {
+    currentClick = 'del'
+    let deletedString = display.innerText.slice(0,-1)
+    if (deletedString === '') {
+        display.innerText = '0';
+    } else {
+        display.innerText = display.innerText.slice(0,-1);
+    }
+    prevClick = 'del'
+}
+
+numKeys.forEach( (numKey) => {
+    numKey.addEventListener('click', numClick)
+})
+opKeys.forEach( (opKey) => {
+    opKey.addEventListener('click', opClick)
+})
+enter.addEventListener('click', enterClick)
+clear.addEventListener('click', clearClick)
+del.addEventListener('click', delClick)
+
+// Disable Enter and '.' as needed
 buttons.forEach( (button) => {
     button.addEventListener('click', () => {
         display.innerText.includes(".") ? point.disabled = true : point.disabled = false;
@@ -103,16 +115,10 @@ buttons.forEach( (button) => {
     })
 })
 
-del.addEventListener('click', () => {
-    let deletedString = display.innerText.slice(0,-1)
-    if (deletedString === '') {
-        display.innerText = '0';
-    } else {
-        display.innerText = display.innerText.slice(0,-1);
-    }
-    
+window.addEventListener('keydown', (e) => {
+    document.getElementById(e.key).click();
 })
 
 
 // To do: 
-// - Add keyboard support
+// - Limit # of characters
