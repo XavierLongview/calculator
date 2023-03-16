@@ -26,7 +26,7 @@ function multiply(num1, num2) {
 }
 
 function divide(num1, num2) {
-    return num1 / num2;
+    return num2 / num1;
 }
 
 function operate(operator, num1, num2) {
@@ -114,7 +114,7 @@ buttons.forEach( (button) => {
         !op ? enter.disabled = true : enter.disabled = false;
     })
 })
-
+// Keyboard support
 window.addEventListener('keydown', (e) => {
     document.getElementById(e.key).click();
 })
