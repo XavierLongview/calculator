@@ -1,12 +1,14 @@
 html {
     font-family: Arial, Helvetica, sans-serif;
+    background-color: #ff9f3f;
 }
 
 .main {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100vh;
+    height: 75vh;
+    
 }
 
 .frame {
@@ -20,6 +22,13 @@ html {
     border-radius: 10px;
     margin: auto;
     box-shadow: 3px 3px 2px 0px grey;
+}
+
+.label {
+    align-self: start;
+    margin-left: 20px;
+    color: rgb(241, 241, 241);
+    font-weight: bolder;
 }
 
 .display {
