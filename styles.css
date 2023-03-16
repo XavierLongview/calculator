@@ -19,6 +19,7 @@ html {
     height: 400px;
     border-radius: 10px;
     margin: auto;
+    box-shadow: 3px 3px 2px 0px grey;
 }
 
 .display {
